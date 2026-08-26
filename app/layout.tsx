@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "./theme-overrides.css";
 import { Header } from "@/components/Header";
 import { ExperienceLayer } from "@/components/ExperienceLayer";
 import { CodeBackdrop } from "@/components/CodeBackdrop";
