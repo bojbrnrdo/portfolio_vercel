@@ -7,7 +7,7 @@ import { HeroStory } from "@/components/HeroStory";
 import { DeveloperHome } from "@/components/DeveloperHome";
 
 const metrics = [
-  ["04", "Web projects"],
+  ["20+", "Web projects"],
   ["2+", "Years in software"],
   ["19", "Tools mapped"],
   ["100%", "Build mindset"],
