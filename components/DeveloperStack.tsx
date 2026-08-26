@@ -46,7 +46,7 @@ export function DeveloperStack(){
       <div className="container-grid relative z-20 grid h-full items-center gap-8 py-20 lg:grid-cols-[.8fr_1.2fr]">
         <div className="max-w-xl">
           <p className="eyebrow text-signal">03 / Development system</p>
-          <h2 className="mt-6 text-5xl leading-[.94] text-white md:text-7xl">Tools in motion.<br/><span className="text-signal">Built into a process.</span></h2>
+          <h2 className="mt-6 text-5xl leading-[.94] text-white md:text-7xl">My Tech Stack</h2>
           <div key={active} className="stack-chapter mt-9 border-l border-signal/60 pl-5">
             <p className="font-mono text-[10px] font-bold uppercase tracking-[.2em] text-signal">{chapter.kicker}</p>
             <h3 className="mt-3 text-2xl text-white">{chapter.title}</h3>
