@@ -1,0 +1,99 @@
+/* Simplified portfolio color system
+   Main text: #EFF1E9
+   Muted text: #979D95
+   Accent: #B8FF38
+*/
+
+:root {
+  --paper-rgb: 12 13 13;
+  --ink-rgb: 239 241 233;
+  --ash-rgb: 26 28 27;
+  --signal-rgb: 184 255 56;
+  --muted-rgb: 151 157 149;
+}
+
+/* Use one accent color throughout the portfolio. */
+#home,
+#experience,
+#stack,
+#work,
+#about,
+#wall,
+#contact,
+.developer-home {
+  --signal-rgb: 184 255 56;
+}
+
+/* Keep section titles neutral instead of using different gradients. */
+#experience h2,
+#work h2,
+#about h2,
+#wall h2 {
+  color: rgb(var(--ink-rgb));
+  background: none;
+  background-clip: initial;
+  -webkit-background-clip: initial;
+}
+
+/* Remove multicolor text gradients. */
+.gradient-text,
+.hero-portfolio-word,
+.stack-script,
+#home h1 .word-reveal:nth-of-type(2) {
+  color: rgb(var(--ink-rgb));
+  background: none;
+  background-clip: initial;
+  -webkit-background-clip: initial;
+  filter: none;
+}
+
+/* Unify the floating role labels. */
+.role-security,
+.role-qa,
+.role-primary {
+  color: rgb(var(--signal-rgb));
+  border-color: rgb(var(--signal-rgb) / 0.35);
+}
+
+/* Standard text hierarchy: white, gray, and one green accent only. */
+body {
+  color: rgb(var(--ink-rgb));
+}
+
+.text-signal {
+  color: rgb(var(--signal-rgb));
+}
+
+.text-muted {
+  color: rgb(var(--muted-rgb));
+}
+
+/* Keep decorative glows subtle and tied to the same accent. */
+.hero-story-scene {
+  background:
+    radial-gradient(circle at 78% 20%, rgb(var(--signal-rgb) / 0.055), transparent 28%),
+    radial-gradient(circle at 18% 78%, rgb(var(--signal-rgb) / 0.035), transparent 30%),
+    #090d0c;
+}
+
+.hero-story-grid {
+  background-image:
+    linear-gradient(rgb(var(--signal-rgb) / 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(var(--signal-rgb) / 0.035) 1px, transparent 1px),
+    radial-gradient(circle, rgba(255, 255, 255, 0.35) 0 1px, transparent 1.5px);
+}
+
+.hero-story-glow,
+.hero-front::after {
+  background: radial-gradient(circle, rgb(var(--signal-rgb) / 0.08), transparent 62%);
+}
+
+.surface-gradient {
+  background: linear-gradient(145deg, rgb(var(--signal-rgb) / 0.035), transparent 60%);
+}
+
+.contact-gradient {
+  background:
+    radial-gradient(circle at 50% 20%, rgb(var(--signal-rgb) / 0.08), transparent 34%),
+    linear-gradient(135deg, #111512, #090d0c 68%);
+}
