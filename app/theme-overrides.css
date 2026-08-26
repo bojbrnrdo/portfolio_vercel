@@ -12,7 +12,6 @@
   --muted-rgb: 151 157 149;
 }
 
-/* Use one accent color throughout the portfolio. */
 #home,
 #experience,
 #stack,
@@ -24,7 +23,6 @@
   --signal-rgb: 184 255 56;
 }
 
-/* Keep section titles neutral instead of using different gradients. */
 #experience h2,
 #work h2,
 #about h2,
@@ -35,7 +33,6 @@
   -webkit-background-clip: initial;
 }
 
-/* Remove multicolor text gradients. */
 .gradient-text,
 .hero-portfolio-word,
 .stack-script,
@@ -47,7 +44,6 @@
   filter: none;
 }
 
-/* Unify the floating role labels. */
 .role-security,
 .role-qa,
 .role-primary {
@@ -55,7 +51,6 @@
   border-color: rgb(var(--signal-rgb) / 0.35);
 }
 
-/* Standard text hierarchy: white, gray, and one green accent only. */
 body {
   color: rgb(var(--ink-rgb));
 }
@@ -68,7 +63,6 @@ body {
   color: rgb(var(--muted-rgb));
 }
 
-/* Keep decorative glows subtle and tied to the same accent. */
 .hero-story-scene {
   background:
     radial-gradient(circle at 78% 20%, rgb(var(--signal-rgb) / 0.055), transparent 28%),
@@ -96,4 +90,282 @@ body {
   background:
     radial-gradient(circle at 50% 20%, rgb(var(--signal-rgb) / 0.08), transparent 34%),
     linear-gradient(135deg, #111512, #090d0c 68%);
+}
+
+/* Experience timeline: alternating cards with a single-accent visual system. */
+.experience-section {
+  background:
+    radial-gradient(circle at 50% 20%, rgb(var(--signal-rgb) / 0.045), transparent 32rem),
+    linear-gradient(180deg, rgb(var(--paper-rgb)), #0a0d0b 50%, rgb(var(--paper-rgb)));
+}
+
+.experience-atmosphere {
+  pointer-events: none;
+  opacity: 0.58;
+  background-image:
+    radial-gradient(circle at 14% 18%, rgb(var(--signal-rgb) / 0.12) 0 1px, transparent 1.8px),
+    radial-gradient(circle at 82% 28%, rgba(255, 255, 255, 0.12) 0 1px, transparent 1.8px),
+    radial-gradient(circle at 28% 76%, rgba(255, 255, 255, 0.08) 0 1px, transparent 1.8px);
+  background-size: 180px 170px, 260px 230px, 340px 300px;
+  mask-image: linear-gradient(to bottom, transparent, black 12%, black 88%, transparent);
+}
+
+.experience-timeline {
+  --timeline-gap: 5.5rem;
+}
+
+.experience-line {
+  left: 50%;
+  width: 2px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgb(var(--ink-rgb) / 0.12);
+  box-shadow: 0 0 0 1px rgb(var(--signal-rgb) / 0.035);
+  transform: translateX(-50%) scaleY(0);
+  transform-origin: top;
+  transition: transform 1.15s cubic-bezier(.16, 1, .3, 1);
+}
+
+.experience-section.is-visible .experience-line {
+  transform: translateX(-50%) scaleY(1);
+}
+
+.experience-line::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent, rgb(var(--signal-rgb) / 0.9) 12%, rgb(var(--signal-rgb) / 0.32) 48%, transparent 92%);
+  opacity: 0.68;
+}
+
+.experience-line-pulse {
+  position: absolute;
+  left: 50%;
+  top: -4rem;
+  width: 6px;
+  height: 5rem;
+  border-radius: 999px;
+  background: linear-gradient(to bottom, transparent, rgb(var(--signal-rgb)), transparent);
+  filter: blur(0.4px) drop-shadow(0 0 10px rgb(var(--signal-rgb) / 0.65));
+  transform: translateX(-50%);
+  animation: experience-line-scan 4.8s linear infinite;
+}
+
+.experience-row {
+  min-height: 15rem;
+  align-items: start;
+  padding-bottom: var(--timeline-gap);
+}
+
+.experience-row:last-child {
+  padding-bottom: 0;
+}
+
+.experience-row.scroll-reveal {
+  opacity: 0;
+}
+
+.experience-row.is-left.scroll-reveal {
+  transform: translate3d(-3.25rem, 1.25rem, 0);
+}
+
+.experience-row.is-right.scroll-reveal {
+  transform: translate3d(3.25rem, 1.25rem, 0);
+}
+
+.experience-row.scroll-reveal.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.experience-card {
+  isolation: isolate;
+  overflow: hidden;
+  border: 1px solid rgb(var(--ink-rgb) / 0.13);
+  border-radius: 1.35rem;
+  background:
+    linear-gradient(145deg, rgb(var(--ink-rgb) / 0.045), transparent 38%),
+    rgba(17, 21, 18, 0.92);
+  padding: clamp(1.35rem, 2vw, 2rem);
+  box-shadow: 0 1.25rem 4rem rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(14px);
+  transition:
+    transform 0.38s cubic-bezier(.16, 1, .3, 1),
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.experience-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: 0;
+  background: radial-gradient(circle at 50% 0%, rgb(var(--signal-rgb) / 0.08), transparent 48%);
+  transition: opacity 0.35s ease;
+}
+
+.experience-card:hover {
+  transform: translateY(-6px);
+  border-color: rgb(var(--signal-rgb) / 0.34);
+  box-shadow: 0 1.5rem 5rem rgba(0, 0, 0, 0.3), 0 0 0 1px rgb(var(--signal-rgb) / 0.05);
+}
+
+.experience-card:hover::after {
+  opacity: 1;
+}
+
+.experience-card-accent {
+  position: absolute;
+  top: 1.1rem;
+  bottom: 1.1rem;
+  width: 3px;
+  border-radius: 999px;
+  background: rgb(var(--signal-rgb));
+  box-shadow: 0 0 18px rgb(var(--signal-rgb) / 0.45);
+}
+
+.experience-row.is-left .experience-card-accent {
+  right: 0;
+}
+
+.experience-row.is-right .experience-card-accent {
+  left: 0;
+}
+
+.experience-marker {
+  display: flex;
+  min-height: 3rem;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.experience-year {
+  box-shadow: 0 0 0 4px rgb(var(--paper-rgb)), 0 0 24px rgb(var(--signal-rgb) / 0.12);
+  transition: border-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.experience-dot {
+  width: 10px;
+  height: 10px;
+  border: 2px solid rgb(var(--paper-rgb));
+  border-radius: 50%;
+  background: rgb(var(--signal-rgb));
+  box-shadow: 0 0 0 4px rgb(var(--signal-rgb) / 0.1), 0 0 18px rgb(var(--signal-rgb) / 0.45);
+  transform: scale(0.5);
+  opacity: 0;
+  transition: transform 0.45s cubic-bezier(.16, 1, .3, 1) 0.25s, opacity 0.3s ease 0.25s;
+}
+
+.experience-row.is-visible .experience-dot {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.experience-row.is-visible .experience-year {
+  animation: experience-year-pop 0.65s cubic-bezier(.16, 1, .3, 1) both;
+}
+
+.experience-tag {
+  background: rgb(var(--ink-rgb) / 0.025);
+  transition: border-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.experience-tag:hover {
+  color: rgb(var(--ink-rgb));
+  border-color: rgb(var(--signal-rgb) / 0.32);
+  transform: translateY(-2px);
+}
+
+@keyframes experience-line-scan {
+  from { top: -5rem; }
+  to { top: 100%; }
+}
+
+@keyframes experience-year-pop {
+  0% { opacity: 0; transform: scale(0.82); }
+  70% { opacity: 1; transform: scale(1.06); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@media (max-width: 767px) {
+  .experience-timeline {
+    --timeline-gap: 3.25rem;
+    padding-left: 3rem;
+  }
+
+  .experience-line {
+    left: 1.1rem;
+  }
+
+  .experience-section.is-visible .experience-line {
+    transform: translateX(-50%) scaleY(1);
+  }
+
+  .experience-row {
+    display: block;
+    min-height: 0;
+  }
+
+  .experience-row.is-left.scroll-reveal,
+  .experience-row.is-right.scroll-reveal {
+    transform: translate3d(1.5rem, 1rem, 0);
+  }
+
+  .experience-row.scroll-reveal.is-visible {
+    transform: translate3d(0, 0, 0);
+  }
+
+  .experience-marker {
+    left: -3rem;
+    top: 1.35rem;
+    width: 2.2rem;
+  }
+
+  .experience-year {
+    position: absolute;
+    left: 2.8rem;
+    top: -0.15rem;
+    transform-origin: left center;
+  }
+
+  .experience-dot {
+    position: absolute;
+    left: 0.82rem;
+    top: 0.35rem;
+  }
+
+  .experience-card {
+    padding-top: 3.4rem;
+  }
+
+  .experience-row.is-left .experience-card-accent,
+  .experience-row.is-right .experience-card-accent {
+    left: 0;
+    right: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .experience-line,
+  .experience-row,
+  .experience-dot,
+  .experience-year,
+  .experience-card,
+  .experience-tag {
+    transition: none !important;
+    animation: none !important;
+  }
+
+  .experience-line {
+    transform: translateX(-50%) scaleY(1) !important;
+  }
+
+  .experience-row,
+  .experience-dot {
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
