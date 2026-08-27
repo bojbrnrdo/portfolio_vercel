@@ -195,8 +195,8 @@ const projectCatalog: Project[] = [
 
 // Lead with software development work; cybersecurity projects remain supporting evidence.
 export const projects: Project[] = [
-  projectCatalog[3],
   projectCatalog[2],
+  projectCatalog[3],
   projectCatalog[0],
   projectCatalog[1]
 ];
