@@ -29,10 +29,10 @@ export default function Home() {
               key={label}
               className={"px-5 py-9 " + (index ? "border-l border-paper/15" : "")}
             >
-              <strong className="block font-display text-4xl text-signal md:text-5xl">
+              <strong className="block font-display text-4xl text-[#4f7300] md:text-5xl">
                 {value}
               </strong>
-              <span className="mt-3 block text-[10px] font-black uppercase tracking-[.14em] text-paper/60">
+              <span className="mt-3 block text-[10px] font-black uppercase tracking-[.14em] text-[#30342f]">
                 {label}
               </span>
             </div>
