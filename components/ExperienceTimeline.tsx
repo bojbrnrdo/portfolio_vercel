@@ -10,7 +10,7 @@ const experience = [
   },
   {
     period: "2024",
-    role: "Cybersecurity Operations Intern",
+    role: "Cybersecurity Analyst",
     organization: "Bounty Fresh Food Inc.",
     type: "Internship",
     description:
