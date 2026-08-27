@@ -10,9 +10,9 @@ const experience = [
   },
   {
     period: "2024",
-    role: "Cybersecurity Analyst",
+    role: "SOC Analyst",
     organization: "Bounty Fresh Food Inc.",
-    type: "Internship",
+    type: null,
     description:
       "Supported phishing simulations, endpoint monitoring, SIEM event review, and vulnerability assessment in a professional operations environment.",
     tags: ["GoPhish", "FortiSIEM", "Trend Vision One"],
@@ -80,9 +80,11 @@ export function ExperienceTimeline() {
                     <p className="mt-1 text-sm font-bold text-signal">{item.organization}</p>
                   </div>
 
-                  <span className="experience-type rounded-full border border-signal/30 bg-signal/10 px-3 py-1.5 font-mono text-[9px] font-black uppercase tracking-[.12em] text-signal">
-                    {item.type}
-                  </span>
+                  {item.type && (
+                    <span className="experience-type rounded-full border border-signal/30 bg-signal/10 px-3 py-1.5 font-mono text-[9px] font-black uppercase tracking-[.12em] text-signal">
+                      {item.type}
+                    </span>
+                  )}
                 </div>
 
                 <p className="mt-6 text-sm leading-7 text-muted">{item.description}</p>
