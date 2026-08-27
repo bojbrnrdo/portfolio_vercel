@@ -18,7 +18,7 @@ const experience = [
     tags: ["GoPhish", "FortiSIEM", "Trend Vision One"],
   },
   {
-    period: "2020 — 2024",
+    period: "2019 — 2023",
     role: "BS Information Technology",
     organization: "NU Fairview / Asia Pacific College",
     type: "Education",
