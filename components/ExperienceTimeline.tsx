@@ -9,7 +9,7 @@ const experience = [
     tags: ["SaaS", "Front-end", "Back-end", "REST APIs"],
   },
   {
-    period: "2024",
+    period: "2023 — 2024",
     role: "SOC Analyst",
     organization: "Bounty Fresh Food Inc.",
     type: null,
